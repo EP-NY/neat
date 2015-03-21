@@ -52,32 +52,32 @@
       display: block;
       $container-display-table: false !global;
       // Negative margins to account for column paddings;
-      margin-left: -($fixed-gutter-small / 2);
-      margin-right: -($fixed-gutter-small / 2);
-      @if $fixed-gutter-medium != null {
-        @include media($medium-up) {
-          margin-left: -($fixed-gutter-medium / 2);
-          margin-right: -($fixed-gutter-medium / 2);
-        }
-      }
-      @if $fixed-gutter-large != null {
-        @include media($large-up) {
-          margin-left: -($fixed-gutter-large / 2);
-          margin-right: -($fixed-gutter-large / 2);
-        }
-      }
-      @if $fixed-gutter-xlarge != null {
-        @include media($xlarge-up) {
-          margin-left: -($fixed-gutter-xlarge / 2);
-          margin-right: -($fixed-gutter-xlarge / 2);
-        }
-      }
-      @if $fixed-gutter-xxlarge != null {
-        @include media($xxlarge) {
-          margin-left: -($fixed-gutter-xxlarge / 2);
-          margin-right: -($fixed-gutter-xxlarge / 2);
-        }
-      }
+      margin-left: -($fixed-gutter-width / 2);
+      margin-right: -($fixed-gutter-width / 2);
+      // @if $fixed-gutter-medium != null {
+      //   @include media($medium-up) {
+      //     margin-left: -($fixed-gutter-medium / 2);
+      //     margin-right: -($fixed-gutter-medium / 2);
+      //   }
+      // }
+      // @if $fixed-gutter-large != null {
+      //   @include media($large-up) {
+      //     margin-left: -($fixed-gutter-large / 2);
+      //     margin-right: -($fixed-gutter-large / 2);
+      //   }
+      // }
+      // @if $fixed-gutter-xlarge != null {
+      //   @include media($xlarge-up) {
+      //     margin-left: -($fixed-gutter-xlarge / 2);
+      //     margin-right: -($fixed-gutter-xlarge / 2);
+      //   }
+      // }
+      // @if $fixed-gutter-xxlarge != null {
+      //   @include media($xxlarge) {
+      //     margin-left: -($fixed-gutter-xxlarge / 2);
+      //     margin-right: -($fixed-gutter-xxlarge / 2);
+      //   }
+      // }
     }
 
     @else {
