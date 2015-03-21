@@ -1,0 +1,9 @@
+/// Width Breakpoints
+$small: new-breakpoint(max-width 767px 6) !default;
+$medium-only: new-breakpoint(min-width 768px max-width 1023px 12) !default;
+$medium-up: new-breakpoint(min-width 768px 12) !default;
+$large-only: new-breakpoint(min-width 1024px max-width 1279px 12) !default;
+$large-up: new-breakpoint(min-width 1024px 12) !default;
+$xlarge-only: new-breakpoint(min-width 1280px max-width 1799px 12) !default;
+$xlarge-up: new-breakpoint(min-width 1280px 12) !default;
+$xxlarge: new-breakpoint(min-width 1800px 12) !default;

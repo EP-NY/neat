@@ -2,10 +2,10 @@
 
 /// Designates the element as a row of columns in the grid layout. It clears the floats on the element and sets its display property. Rows can't be nested, but there can be more than one row element—with different display properties—per layout.
 ///
-/// @param {String} $display [default]
+/// @param {String} $display (default)
 ///  Sets the display property of the element and the display context that will be used by its children. Can be `block` or `table`.
 ///
-/// @param {String} $direction [$default-layout-direction]
+/// @param {String} $direction ($default-layout-direction)
 ///  Sets the layout direction. Can be `LTR` (left-to-right) or `RTL` (right-to-left).
 ///
 /// @example scss - Usage
@@ -44,9 +44,46 @@
     @include fill-parent;
     table-layout: fixed;
     $container-display-table: true !global;
-  } @else {
-    @include clearfix;
-    display: block;
-    $container-display-table: false !global;
+  }
+
+  @else {
+    @if $fixed-gutter == true {
+      @include clearfix;
+      display: block;
+      $container-display-table: false !global;
+      // Negative margins to account for column paddings;
+      margin-left: -($fixed-gutter-small / 2);
+      margin-right: -($fixed-gutter-small / 2);
+      @if $fixed-gutter-medium != null {
+        @include media($medium-up) {
+          margin-left: -($fixed-gutter-medium / 2);
+          margin-right: -($fixed-gutter-medium / 2);
+        }
+      }
+      @if $fixed-gutter-large != null {
+        @include media($large-up) {
+          margin-left: -($fixed-gutter-large / 2);
+          margin-right: -($fixed-gutter-large / 2);
+        }
+      }
+      @if $fixed-gutter-xlarge != null {
+        @include media($xlarge-up) {
+          margin-left: -($fixed-gutter-xlarge / 2);
+          margin-right: -($fixed-gutter-xlarge / 2);
+        }
+      }
+      @if $fixed-gutter-xxlarge != null {
+        @include media($xxlarge) {
+          margin-left: -($fixed-gutter-xxlarge / 2);
+          margin-right: -($fixed-gutter-xxlarge / 2);
+        }
+      }
+    }
+
+    @else {
+      @include clearfix;
+      display: block;
+      $container-display-table: false !global;
+    }
   }
 }

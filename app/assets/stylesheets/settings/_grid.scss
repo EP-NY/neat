@@ -18,6 +18,16 @@ $gutter: modular-scale(1, 1em, $golden) !default;
 
 $grid-columns: 12 !default;
 
+/// Determines whether to use percentage based gutter or fixed-width gutter
+$fixed-gutter: false !default;
+
+/// Fixed gutter sizes (only functional if $fixed-gutter is set to true)
+$fixed-gutter-small: 2rem !default;
+$fixed-gutter-medium: null !default;
+$fixed-gutter-large: null !default;
+$fixed-gutter-xlarge: null !default;
+$fixed-gutter-xxlarge: null !default;
+
 /// Sets the max-width property of the element that includes `outer-container()`. To learn more about `em()` see [Bourbon docs](http://bourbon.io/docs/#px-to-em). Set with the `!global` flag.
 ///
 /// @type Number (Unit)

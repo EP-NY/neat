@@ -2,7 +2,7 @@
 
 /// Translates an element horizontally by a number of columns. Positive arguments shift the element to the active layout direction, while negative ones shift it to the opposite direction.
 ///
-/// @param {Number (unitless)} $n-columns [1]
+/// @param {Number (unitless)} $n-columns (1)
 ///   Number of columns by which the element shifts.
 ///
 /// @example scss - Usage
@@ -42,8 +42,13 @@
 
   $direction: get-direction($layout-direction, $default-layout-direction);
   $opposite-direction: get-opposite-direction($direction);
-
-  margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+  
+  @if $fixed-gutter == true {
+    margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns);
+  }
+  @else {
+    margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+  }
 
   // Reset nesting context
   $parent-columns: $grid-columns !global;

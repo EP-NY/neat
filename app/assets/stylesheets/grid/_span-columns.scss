@@ -9,9 +9,7 @@
 ///
 ///   The values can be separated with any string such as `of`, `/`, etc.
 ///
-///   `$columns` also accepts decimals for when it's necessary to break out of the standard grid. E.g. Passing `2.4` in a standard 12 column grid will divide the row into 5 columns.
-///
-/// @param {String} $display [block]
+/// @param {String} $display (block)
 ///   Sets the display property of the element. By default it sets the display propert of the element to `block`.
 ///
 ///   If passed `block-collapse`, it also removes the margin gutter by adding it to the element width.
@@ -83,11 +81,43 @@
       }
 
     } @else {
-      margin-#{$direction}: flex-gutter($container-columns);
-      width: flex-grid($columns, $container-columns);
+      @if $fixed-gutter == true {
+        width: flex-grid($columns, $container-columns);
+        padding-left: $fixed-gutter-small / 2;
+        padding-right: $fixed-gutter-small / 2;
+        @if $fixed-gutter-medium != null {
+          @include media($medium-up) {
+            padding-left: $fixed-gutter-medium / 2;
+            padding-right: $fixed-gutter-medium / 2;
+          }
+        }
+        @if $fixed-gutter-large != null {
+          @include media($large-up) {
+            padding-left: $fixed-gutter-large / 2;
+            padding-right: $fixed-gutter-large / 2;
+          }
+        }
+        @if $fixed-gutter-xlarge != null {
+          @include media($xlarge-up) {
+            padding-left: $fixed-gutter-xlarge / 2;
+            padding-right: $fixed-gutter-xlarge / 2;
+          }
+        }
+        @if $fixed-gutter-xxlarge != null {
+          @include media($xxlarge) {
+            padding-left: $fixed-gutter-xxlarge / 2;
+            padding-right: $fixed-gutter-xxlarge / 2;
+          }
+        }
+        
+      }
+      @else {
+        margin-#{$direction}: flex-gutter($container-columns);
+        width: flex-grid($columns, $container-columns);
 
-      &:last-child {
-        margin-#{$direction}: 0;
+        &:last-child {
+          margin-#{$direction}: 0;
+        }
       }
     }
   }
