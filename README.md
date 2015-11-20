@@ -7,16 +7,17 @@ As this is a fork of Bourbon Neat, it is dependent on [Bourbon](http://www.bourb
 ---
 ###### Breakpoints
 Toddy comes packaged with a series of breakpoints:
-|Name|Width Range|
-|----|-----|
-|small|0-767px|
-|medium-only|768px-1023px|
-|medium-up|768px-|
-|large-only|1024px-1279px|
-|large-up|1024px-|
-|xlarge-only|1280px-1799px|
-|xlarge-up|1280px-|
-|xxlarge|1800px-|
+
+Name | Width Range
+---- | -----------
+small | 0-767px
+medium-only | 768px-1023px
+medium-up | 768px-
+large-only | 1024px-1279px
+large-up | 1024px-
+xlarge-only | 1280px-1799px
+xlarge-up | 1280px-
+xxlarge | 1800px-
 
 ---
 ###### Classes
