@@ -73,7 +73,9 @@
       @include -neat-warn("The 'collapse' argument will be deprecated. Use 'block-collapse' instead.");
     }
 
-    @if $display == collapse or $display == block-collapse {
+
+    @if $display == collapse or $display == block-collapse or $display == flex-collapse {
+      /* FIXME ADD FLEX COLLAPSE OPTIONS */
       width: flex-grid($columns, $container-columns) + flex-gutter($container-columns);
 
       &:last-child {
@@ -82,34 +84,38 @@
 
     } @else {
       @if $fixed-gutter == true {
-        width: flex-grid($columns, $container-columns);
+        @if $display == flex {
+          flex: 0 0 flex-grid($columns, $container-columns);
+        }
+        @else {
+          width: flex-grid($columns, $container-columns);
+        }
         padding-left: $fixed-gutter-width / 2;
         padding-right: $fixed-gutter-width / 2;
-        // @if $fixed-gutter-medium != null {
-        //   @include media($medium-up) {
-        //     padding-left: $fixed-gutter-medium / 2;
-        //     padding-right: $fixed-gutter-medium / 2;
-        //   }
-        // }
-        // @if $fixed-gutter-large != null {
-        //   @include media($large-up) {
-        //     padding-left: $fixed-gutter-large / 2;
-        //     padding-right: $fixed-gutter-large / 2;
-        //   }
-        // }
-        // @if $fixed-gutter-xlarge != null {
-        //   @include media($xlarge-up) {
-        //     padding-left: $fixed-gutter-xlarge / 2;
-        //     padding-right: $fixed-gutter-xlarge / 2;
-        //   }
-        // }
-        // @if $fixed-gutter-xxlarge != null {
-        //   @include media($xxlarge) {
-        //     padding-left: $fixed-gutter-xxlarge / 2;
-        //     padding-right: $fixed-gutter-xxlarge / 2;
-        //   }
-        // }
-        
+        @if $fixed-gutter-medium != null {
+          @include media($medium-up) {
+            padding-left: $fixed-gutter-medium / 2;
+            padding-right: $fixed-gutter-medium / 2;
+          }
+        }
+        @if $fixed-gutter-large != null {
+          @include media($large-up) {
+            padding-left: $fixed-gutter-large / 2;
+            padding-right: $fixed-gutter-large / 2;
+          }
+        }
+        @if $fixed-gutter-xlarge != null {
+          @include media($xlarge-up) {
+            padding-left: $fixed-gutter-xlarge / 2;
+            padding-right: $fixed-gutter-xlarge / 2;
+          }
+        }
+        @if $fixed-gutter-xxlarge != null {
+          @include media($xxlarge) {
+            padding-left: $fixed-gutter-xxlarge / 2;
+            padding-right: $fixed-gutter-xxlarge / 2;
+          }
+        }      
       }
       @else {
         margin-#{$direction}: flex-gutter($container-columns);

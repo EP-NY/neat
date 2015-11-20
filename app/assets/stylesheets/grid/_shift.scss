@@ -15,8 +15,8 @@
 ///     margin-left: -25.58941%;
 ///   }
 
-@mixin shift($n-columns: 1) {
-  @include shift-in-context($n-columns);
+@mixin shift($n-columns: 1, $direction: left) {
+  @include shift-in-context($n-columns, $direction);
 }
 
 /// Translates an element horizontally by a number of columns, in a specific nesting context.
@@ -36,18 +36,18 @@
 ///     margin-left: -52.41458%;
 ///   }
 
-@mixin shift-in-context($shift: $columns of $container-columns) {
+@mixin shift-in-context($shift: $columns of $container-columns, $direction: left) {
   $n-columns: nth($shift, 1);
   $parent-columns: container-shift($shift) !global;
 
-  $direction: get-direction($layout-direction, $default-layout-direction);
+  // $direction: get-direction($layout-direction, $default-layout-direction);
   $opposite-direction: get-opposite-direction($direction);
   
   @if $fixed-gutter == true {
-    margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns);
+    margin-#{$direction}: $n-columns * flex-grid(1, $parent-columns);
   }
   @else {
-    margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+    margin-#{$direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
   }
 
   // Reset nesting context

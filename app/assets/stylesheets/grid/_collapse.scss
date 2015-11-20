@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/// Tells the element to which it is applied to collapse the gutter padding of its parent.
+/// This is what allows row() to align its inner contents with the outer bound of the main grid parent.
+/// If a value (left, right) is passed, it does the same thing but only to the desired side direction.
+/// Ideal for combining with column elements inside of a clearfix, within a parent that is also a column element.
+/// The only way to create rows with top/bottom borders that terminate in the same place as the content.
+
+/// @param {String} $direction (both, left, right)
+/// If no value is passed to $direction, it is assumed that both directions should collapse.
+
+/// @example scss - Usage
+/// .element {
+///   @include collapse();
+/// }
+
+/// @example css - CSS Output
+/// .element {
+///   margin-left: -1rem;
+///   margin-right: -1rem;
+/// }
+
+/// @example scss - Usage
+/// .element {
+///   @include collapse(right);
+/// }
+
+/// @example css - CSS Output
+/// .element {
+///   margin-right: -1rem;
+/// }
+
+
+@mixin collapse($direction: both) {
+  @if $fixed-gutter == true {
+    @if $direction != both {
+      margin-#{$direction}: -($fixed-gutter-width / 2);
+      @if $fixed-gutter-medium != null {
+        @include media($medium-up) {
+          margin-#{$direction}: -($fixed-gutter-medium / 2);
+        }
+      }
+      @if $fixed-gutter-large != null {
+        @include media($large-up) {
+          margin-#{$direction}: -($fixed-gutter-large / 2);
+        }
+      }
+      @if $fixed-gutter-xlarge != null {
+        @include media($xlarge-up) {
+          margin-#{$direction}: -($fixed-gutter-xlarge / 2);
+        }
+      }
+      @if $fixed-gutter-xxlarge != null {
+        @include media($xxlarge) {
+          margin-#{$direction}: -($fixed-gutter-xxlarge / 2);
+        }
+      }
+    }
+    @else {
+      margin-left: -($fixed-gutter-width / 2);
+      margin-right: -($fixed-gutter-width / 2);
+      @if $fixed-gutter-medium != null {
+        @include media($medium-up) {
+          margin-left: -($fixed-gutter-medium / 2);
+          margin-right: -($fixed-gutter-medium / 2);
+        }
+      }
+      @if $fixed-gutter-large != null {
+        @include media($large-up) {
+          margin-left: -($fixed-gutter-large / 2);
+          margin-right: -($fixed-gutter-large / 2);
+        }
+      }
+      @if $fixed-gutter-xlarge != null {
+        @include media($xlarge-up) {
+          margin-left: -($fixed-gutter-xlarge / 2);
+          margin-right: -($fixed-gutter-xlarge / 2);
+        }
+      }
+      @if $fixed-gutter-xxlarge != null {
+        @include media($xxlarge) {
+          margin-left: -($fixed-gutter-xxlarge / 2);
+          margin-right: -($fixed-gutter-xxlarge / 2);
+        }
+      }
+    }
+  }
+}
