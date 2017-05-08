@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright © 2012–2015 [thoughtbot, inc.](http://thoughtbot.com)
+Copyright © 2012–2015 [thoughtbot, inc.](http://thoughtbot.com) and copyright © 2015-2017 [Extended Play, LLC](http://www.extendedplay.nyc)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the “Software”), to deal
