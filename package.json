@@ -1,9 +1,9 @@
 {
-  "name": "bourbon-neat",
-  "version": "1.7.2",
-  "description": "A lightweight, semantic grid framework built with Bourbon",
+  "name": "toddy",
+  "version": "1.0",
+  "description": "A lightweight, semantic grid framework with fixed gutters, based on Neat (the lightweight, semantic grid framework built with Bourbon)",
   "keywords": [
-    "bourbon",
+    "flexbox",
     "columns",
     "grid",
     "layout",
@@ -17,17 +17,17 @@
   ],
   "homepage": "http://neat.bourbon.io",
   "bugs": {
-    "url": "https://github.com/thoughtbot/neat/issues"
+    "url": "https://github.com/EP-NY/toddy/issues"
   },
   "license": "MIT",
   "author": {
-    "name": "thoughtbot",
-    "url": "http://thoughtbot.com"
+    "name": "Extended Play",
+    "url": "http://extendedplay.nyc"
   },
-  "main": "app/assets/stylesheets/_neat.scss",
+  "main": "core/_toddy.scss",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thoughtbot/neat.git"
+    "url": "https://github.com/EP-NY/toddy.git"
   },
   "scripts": {
     "test": "echo \"No test specified\""

@@ -1,0 +1,31 @@
+{
+  "name": "toddy",
+  "description": "A lightweight",
+  "main": "core/_toddy.scss",
+  "authors": [
+    "Extended Play",
+    "Thoughtbot"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bourbon",
+    "columns",
+    "grid",
+    "layout",
+    "media",
+    "media-queries",
+    "neat",
+    "queries",
+    "sass",
+    "scss",
+    "semantic"
+  ],
+  "homepage": "https://github.com/EP-NY/toddy",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
