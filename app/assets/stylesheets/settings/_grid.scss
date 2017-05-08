@@ -22,9 +22,9 @@ $grid-columns: 12 !default;
 $fixed-gutter: true !default;
 
 /// Fixed gutter sizes (only functional if $fixed-gutter is set to true)
-$fixed-gutter-width: 2rem !default;
-$fixed-gutter-medium: null !default;
-$fixed-gutter-large: null !default;
+$fixed-gutter-width: 1rem !default;
+$fixed-gutter-medium: 1.33rem !default;
+$fixed-gutter-large: 2rem !default;
 $fixed-gutter-xlarge: null !default;
 $fixed-gutter-xxlarge: null !default;
 
@@ -32,7 +32,7 @@ $fixed-gutter-xxlarge: null !default;
 ///
 /// @type Number (Unit)
 ///
-$max-width: rem(1440);
+$max-width: rem(2560);
 
 /// When set to true, it sets the box-sizing property of all elements to `border-box`. Set with a `!global` flag.
 ///

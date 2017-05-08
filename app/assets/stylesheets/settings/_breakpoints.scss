@@ -4,6 +4,6 @@ $medium-only: new-breakpoint(min-width 768px max-width 1023px 12);
 $medium-up: new-breakpoint(min-width 768px 12);
 $large-only: new-breakpoint(min-width 1024px max-width 1279px 12);
 $large-up: new-breakpoint(min-width 1024px 12);
-$xlarge-only: new-breakpoint(min-width 1280px max-width 1799px 12);
-$xlarge-up: new-breakpoint(min-width 1280px 12);
+$xlarge-only: new-breakpoint(min-width 1440px max-width 1799px 12);
+$xlarge-up: new-breakpoint(min-width 1440px 12);
 $xxlarge: new-breakpoint(min-width 1800px 12);

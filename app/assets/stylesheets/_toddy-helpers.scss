@@ -1,9 +1,16 @@
+// Get the $em-base
+@import "settings/px-to-em";
+
 // Functions
 @import "functions/private";
+@import "functions/strip-units";
+@import "functions/px-to-em";
+@import "functions/px-to-rem";
 @import "functions/new-breakpoint";
+@import "functions/clearfix";
+@import "functions/modular-scale";
 
 // Settings
 @import "settings/grid";
 @import "settings/visual-grid";
 @import "settings/disable-warnings";
-@import "settings/breakpoints";
