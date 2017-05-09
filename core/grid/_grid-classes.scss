@@ -199,15 +199,13 @@ $grid-max: 12;
     @for $i from 1 through $grid-of {
       @if $width == small {
         .#{$width}-offset-#{$i}of#{$grid-of} {
-          @include shift($i of #{$grid-of});
+          @include shift-in-context($i of $grid-of);
         }
       }
       @else {
         .#{$width}-offset-#{$i}of#{$grid-of} {
           @include breakpoint(#{$width}) {
-            .#{$width}-offset-#{$i}of#{$grid-of} {
-              @include shift($i of #{$grid-of});
-            }
+            @include shift-in-context($i of $grid-of);
           }
         }
       }
