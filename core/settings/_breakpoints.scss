@@ -1,5 +1,13 @@
 // Width Breakpoints
-// 
+$small: null;
+$medium-up: null;
+$medium-only: null;
+$large-up: null;
+$large-only: null;
+$xlarge-up: null;
+$xlarge-only: null;
+$xxlarge: null;
+
 // Small
 @if variable-exists(width-small-max) {
   $small: new-breakpoint(max-width #{$width-small-max} 12);
