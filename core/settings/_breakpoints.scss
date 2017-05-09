@@ -68,5 +68,5 @@
 @if variable-exists(width-xxlarge-min) {
   $xxlarge: new-breakpoint(min-width #{$width-xxlarge-min} 12);
 } @else {
-  $xxlarge: new-breakpoint(max-width 1800px 12);
+  $xxlarge: new-breakpoint(min-width 1800px 12);
 }
