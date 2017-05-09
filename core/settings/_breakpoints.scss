@@ -1,9 +1,72 @@
-/// Width Breakpoints
-$small: new-breakpoint(max-width 767px 6);
-$medium-only: new-breakpoint(min-width 768px max-width 1023px 12);
-$medium-up: new-breakpoint(min-width 768px 12);
-$large-only: new-breakpoint(min-width 1024px max-width 1279px 12);
-$large-up: new-breakpoint(min-width 1024px 12);
-$xlarge-only: new-breakpoint(min-width 1440px max-width 1799px 12);
-$xlarge-up: new-breakpoint(min-width 1440px 12);
-$xxlarge: new-breakpoint(min-width 1800px 12);
+// Width Breakpoints
+// 
+// Small
+@if variable-exists(width-small-max) {
+  $small: new-breakpoint(max-width #{$width-small-max} 12);
+} @else {
+  $small: new-breakpoint(max-width 767px 12);
+}
+
+// Medium
+@if variable-exists(width-medium-min) {
+  $medium-up: new-breakpoint(min-width #{$width-medium-min} 12);
+  @if variable-exists(width-medium-max) {
+    $medium-only: new-breakpoint(min-width #{$width-medium-min} max-width #{$width-medium-max} 12);
+  }
+  @else {
+    $medium-only: new-breakpoint(min-width #{$width-medium-min} max-width 1023px 12);
+  }
+} @else {
+  $medium-up: new-breakpoint(max-width 768px 12);
+  @if variable-exists(width-medium-max) {
+    $medium-only: new-breakpoint(min-width 768px max-width #{$width-medium-max} 12);
+  }
+  @else {
+    $medium-only: new-breakpoint(min-width 768px max-width 1023px 12);
+  }
+}
+
+// Large
+@if variable-exists(width-large-min) {
+  $large-up: new-breakpoint(min-width #{$width-large-min} 12);
+  @if variable-exists(width-large-max) {
+    $large-only: new-breakpoint(min-width #{$width-large-min} max-width #{$width-large-max} 12);
+  }
+  @else {
+    $large-only: new-breakpoint(min-width #{$width-large-min} max-width 1279px 12);
+  }
+} @else {
+  $large-up: new-breakpoint(max-width 1024px 12);
+  @if variable-exists(width-large-max) {
+    $large-only: new-breakpoint(min-width 1024px max-width #{$width-large-max} 12);
+  }
+  @else {
+    $large-only: new-breakpoint(min-width 1024px max-width 1279px 12);
+  }
+}
+
+// X-Large
+@if variable-exists(width-xlarge-min) {
+  $xlarge-up: new-breakpoint(min-width #{$width-xlarge-min} 12);
+  @if variable-exists(width-xlarge-max) {
+    $xlarge-only: new-breakpoint(min-width #{$width-xlarge-min} max-width #{$width-xlarge-max} 12);
+  }
+  @else {
+    $xlarge-only: new-breakpoint(min-width #{$width-xlarge-min} max-width 1799px 12);
+  }
+} @else {
+  $xlarge-up: new-breakpoint(max-width 1280px 12);
+  @if variable-exists(width-xlarge-max) {
+    $xlarge-only: new-breakpoint(min-width 1280px max-width #{$width-xlarge-max} 12);
+  }
+  @else {
+    $xlarge-only: new-breakpoint(min-width 1280px max-width 1799px 12);
+  }
+}
+
+// XX-Large
+@if variable-exists(width-xxlarge-min) {
+  $xxlarge: new-breakpoint(min-width #{$width-xxlarge-min} 12);
+} @else {
+  $xxlarge: new-breakpoint(max-width 1800px 12);
+}
