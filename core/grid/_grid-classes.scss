@@ -1,0 +1,216 @@
+// Grid Classes
+
+.row {
+  @include row();
+  @include clearfix();
+  &.collapse {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.flex-row {
+  @include row(flex);
+  @include clearfix();
+  &.collapse {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.columns {
+  display: block;
+  float: left;
+  @if $fixed-gutter == true {
+    padding-left: $fixed-gutter-width / 2;
+    padding-right: $fixed-gutter-width / 2;
+    @if $fixed-gutter-medium != null {
+      @include media($medium-up) {
+        padding-left: $fixed-gutter-medium / 2;
+        padding-right: $fixed-gutter-medium / 2;
+      }
+    }
+    @if $fixed-gutter-large != null {
+      @include media($large-up) {
+        padding-left: $fixed-gutter-large / 2;
+        padding-right: $fixed-gutter-large / 2;
+      }
+    }
+    @if $fixed-gutter-xlarge != null {
+      @include media($xlarge-up) {
+        padding-left: $fixed-gutter-xlarge / 2;
+        padding-right: $fixed-gutter-xlarge / 2;
+      }
+    }
+    @if $fixed-gutter-xxlarge != null {
+      @include media($xxlarge-up) {
+        padding-left: $fixed-gutter-xxlarge / 2;
+        padding-right: $fixed-gutter-xxlarge / 2;
+      }
+    }
+    
+  }
+  @else {
+    margin-#{$direction}: flex-gutter($container-columns);
+    &:last-child {
+      margin-#{$direction}: 0;
+    }
+  }
+  &.collapse {
+    @include collapse();
+  }
+  &.collapse-right {
+    @include collapse(right);
+  }
+  &.collapse-left {
+    @include collapse(left);
+  }
+
+  .collapse > & {
+    padding: 0;
+  }
+}
+
+.flex-columns {
+  @if $fixed-gutter == true {
+    padding-left: $fixed-gutter-width / 2;
+    padding-right: $fixed-gutter-width / 2;
+    @if $fixed-gutter-medium != null {
+      @include media($medium-up) {
+        padding-left: $fixed-gutter-medium / 2;
+        padding-right: $fixed-gutter-medium / 2;
+      }
+    }
+    @if $fixed-gutter-large != null {
+      @include media($large-up) {
+        padding-left: $fixed-gutter-large / 2;
+        padding-right: $fixed-gutter-large / 2;
+      }
+    }
+    @if $fixed-gutter-xlarge != null {
+      @include media($xlarge-up) {
+        padding-left: $fixed-gutter-xlarge / 2;
+        padding-right: $fixed-gutter-xlarge / 2;
+      }
+    }
+    @if $fixed-gutter-xxlarge != null {
+      @include media($xxlarge-up) {
+        padding-left: $fixed-gutter-xxlarge / 2;
+        padding-right: $fixed-gutter-xxlarge / 2;
+      }
+    }
+  }
+  .collapse & > {
+    padding: 0;
+  }
+}
+
+@mixin breakpoint($media) {
+  @if      $media == small            { @include media($small-up) { @content; } }
+
+  @else if $media == medium           { @include media($medium-up) { @content; } }
+
+  @else if $media == large           { @include media($large-up) { @content; } }
+
+  @else if $media == xlarge           { @include media($xlarge-up) { @content; } }
+
+  @else if $media == xxlarge           { @include media($xxlarge) { @content; } }
+    
+}
+
+// Max Columns
+$grid-max: 12;
+@each $width in small, medium, large, xlarge, xxlarge {
+  @if $width == small {
+    @for $i from 1 through $grid-max {
+      .#{$width}-#{$i} {
+        width: flex-grid($i);
+        &.flex-columns {
+          flex: 0 0 flex-grid($i);
+          max-width: flex-grid($i);
+        }
+      }
+    }
+  }
+  @else {
+    @for $i from 1 through $grid-max {
+      .#{$width}-#{$i} {
+        @include breakpoint(#{$width}) {
+          width: flex-grid($i);
+          &.flex-columns {
+            flex: 0 0 flex-grid($i);
+            max-width: flex-grid($i);
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $width in small, medium, large, xlarge, xxlarge {
+  @for $i from 1 through $grid-max {
+    $grid-of: $i;
+    @for $i from 1 through $grid-of {
+      @if $width == small {
+        .#{$width}-#{$i}of#{$grid-of} {
+          width: flex-grid($i, $grid-of);
+          &.flex-columns {
+            flex: 0 0 flex-grid($i, $grid-of);
+            max-width: flex-grid($i, $grid-of);
+          }
+        }
+      }
+      @else {
+        .#{$width}-#{$i}of#{$grid-of} {
+          @include breakpoint(#{$width}) {
+            width: flex-grid($i, $grid-of);
+            &.flex-columns {
+              flex: 0 0 flex-grid($i, $grid-of);
+              max-width: flex-grid($i, $grid-of);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Shift Classes
+@each $width in small, medium, large, xlarge, xxlarge {
+  @for $i from 1 through $grid-max {
+      @if $width == small {
+      .#{$width}-offset-#{$i} {
+        @include shift($i);
+      }
+    }
+    @else {
+      .#{$width}-offset-#{$i} {
+        @include breakpoint(#{$width}) {
+          @include shift($i);
+        }
+      }
+    }
+  }
+}
+
+@each $width in small, medium, large, xlarge, xxlarge {
+  @for $i from 1 through $grid-max {
+    $grid-of: $i;
+    @for $i from 1 through $grid-of {
+      @if $width == small {
+        .#{$width}-offset-#{$i}of#{$grid-of} {
+          @include shift($i of #{$grid-of});
+        }
+      }
+      @else {
+        .#{$width}-offset-#{$i}of#{$grid-of} {
+          @include breakpoint(#{$width}) {
+            .#{$width}-offset-#{$i}of#{$grid-of} {
+              @include shift($i of #{$grid-of});
+            }
+          }
+        }
+      }
+    }
+  }
+}
