@@ -1,5 +1,7 @@
 // Get the $em-base
 @import "settings/px-to-em";
+@import "settings/grid";
+@import "settings/visual-grid";
 
 // Functions
 @import "functions/private";
@@ -12,6 +14,4 @@
 
 // Settings
 @import "settings/breakpoints";
-@import "settings/grid";
-@import "settings/visual-grid";
 @import "settings/disable-warnings";
