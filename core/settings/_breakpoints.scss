@@ -6,7 +6,7 @@ $large-up: null;
 $large-only: null;
 $xlarge-up: null;
 $xlarge-only: null;
-$xxlarge: null;
+$xxlarge-up: null;
 
 // Small
 @if variable-exists(width-small-max) {
@@ -74,7 +74,7 @@ $xxlarge: null;
 
 // XX-Large
 @if variable-exists(width-xxlarge-min) {
-  $xxlarge: new-breakpoint(min-width #{$width-xxlarge-min} 12);
+  $xxlarge-up: new-breakpoint(min-width #{$width-xxlarge-min} 12);
 } @else {
-  $xxlarge: new-breakpoint(min-width 1800px 12);
+  $xxlarge-up: new-breakpoint(min-width 1800px 12);
 }
