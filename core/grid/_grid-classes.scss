@@ -114,7 +114,7 @@
 
   @else if $media == xlarge           { @include media($xlarge-up) { @content; } }
 
-  @else if $media == xxlarge           { @include media($xxlarge) { @content; } }
+  @else if $media == xxlarge           { @include media($xxlarge-up) { @content; } }
     
 }
 
