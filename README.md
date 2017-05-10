@@ -2,11 +2,13 @@
 ##### a fork of [Neat](http://neat.bourbon.io/) (from ThoughtBot) put together by [Extended Play](http://www.ep-ny.com)
 ---
 ###### Dependencies
+
 As this is a fork of Bourbon Neat, ~~it is dependent on [Bourbon](http://www.bourbon.io). Include it in your main stylesheet before including Toddy.~~ **Toddy is no longer dependent on Bourbon and can be used easily without it.**
+
 ---
 ###### Custom Settings
 To change how Toddy works out of the box,  you can create a .scss file with your settings and import it before Toddy. We'll call this your `grid-settings.scss`.
----
+
 ###### Breakpoints
 Toddy comes packaged with a series of breakpoints:
 
