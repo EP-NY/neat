@@ -1,6 +1,6 @@
 {
   "name": "toddy",
-  "description": "A lightweight",
+  "description": "A lightweight grid framework with flexbox and fixed gutters.",
   "main": "core/_toddy.scss",
   "authors": [
     "Extended Play",
