@@ -4,8 +4,9 @@
 ###### Installation
 
 via Bower:
-
-`$ bower install toddy`
+```sh
+$ bower install toddy
+```
 
 ---
 ###### Dependencies
@@ -33,7 +34,7 @@ xxlarge-up | 1800px-
 Breakpoint bounds can be overridden by defining `$width-{breakpointName}-min` and `$width-{breakpointName}-max` variables in your `grid-settings.scss` file.
 
 Example:
-```
+```scss
 // _grid-settings.scss
 // Breakpoint Definitions for Toddy
 $width-small-max: 45em;
@@ -56,7 +57,7 @@ Fixed gutters are enabled by default. To go back to Neat's normal flexible gutte
 By default, only `$fixed-gutter-width` is defined, which will apply to all breakpoints without explicity defined gutter sizes. If you wish to change gutter sizes for larger breakpoints (except for `small`, which defaults to `$fixed-gutter-width`), do so by setting `$fixed-gutter-{breakpointName}` in `grid-settings.scss`.
 
 Example:
-```
+```scss
 // Fixed gutter sizes (only functional if $fixed-gutter is set to true)
 $fixed-gutter-width: 1.875rem !global;
 $fixed-gutter-medium: 2rem !global;
@@ -67,7 +68,7 @@ $fixed-gutter-xxlarge: null !global;
 ---
 ###### Classes
 A la Foundation, Toddy comes packaged with classes for you to use when constructing your templates so that not all of your layout has to be written in CSS. Grid size declarations are prefixed with the breakpoint at which they should begin, followed by the number of columns the item should fill. A `div` element that should be full size on the `small` breakpoint but half-size on the `large` breakpoint is written as `<div class="small-12 large-6 columns"></div>`. Rows of grid items should be nested within `.row` elements, and grid items should be given the class of `.columns` after grid size declarations. An example is as follows:
-```
+```html
 <div class="row">
   <div class="small-12 columns"></div>
   <div class="small-12 medium-6 large-3 xlarge-2 xxlarge-1 columns"></div>
@@ -75,7 +76,7 @@ A la Foundation, Toddy comes packaged with classes for you to use when construct
 ```
 
 Neat's contextual `span-columns` function works, as well. When in the context of an existing grid column, sub-columns can be created as follows:
-```
+```html
 <div class="row">
   <div class="small-12 medium-6 columns">
     <div class="row">
@@ -87,7 +88,7 @@ Neat's contextual `span-columns` function works, as well. When in the context of
 ```
 
 You can use Neat's `@include shift()` function using classes.
-```
+```html
 <div class="row">
   <div class="small-12 medium-6 medium-offset-6 columns">
     <div class="row">
@@ -102,7 +103,7 @@ You can use Neat's `@include shift()` function using classes.
 ###### Flexbox
 Flexbox grids work just like the aforementioned grid classes. However, instead of wrapping grid items in a `div` with a class of `.row`, just give it a class of `.flex-row`. Replace `.columns` with `.flex-columns`. Boom. It works.
 
-```
+```html
 <div class="flex-row">
   <div class="small-12 medium-9 large-6 flex-columns"></div>
   <div class="small-12 medium-3 large-6 flex-columns"></div>
