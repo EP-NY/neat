@@ -21,7 +21,9 @@ xlarge-only | 1280px-1799px
 xlarge-up | 1280px-
 xxlarge-up | 1800px-
 
-Breakpoint bounds can be overridden by defining `$width-{breakpointName}-min` and `$width-{breakpointName}-max` variables in your `grid-settings.scss` file. Example:
+Breakpoint bounds can be overridden by defining `$width-{breakpointName}-min` and `$width-{breakpointName}-max` variables in your `grid-settings.scss` file.
+
+Example:
 ```
 // _grid-settings.scss
 // Breakpoint Definitions for Toddy
@@ -43,6 +45,7 @@ $width-xxlarge-min: 120.063em;
 Fixed gutters are enabled by default. To go back to Neat's normal flexible gutters functionality, simply set `$fixed-gutter: false;` in your `grid-settings.scss`.
 
 By default, only `$fixed-gutter-width` is defined, which will apply to all breakpoints without explicity defined gutter sizes. If you wish to change gutter sizes for larger breakpoints (except for `small`, which defaults to `$fixed-gutter-width`), do so by setting `$fixed-gutter-{breakpointName}` in `grid-settings.scss`.
+
 Example:
 ```
 // Fixed gutter sizes (only functional if $fixed-gutter is set to true)
