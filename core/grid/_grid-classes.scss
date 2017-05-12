@@ -120,10 +120,18 @@
     
 }
 
+$columnCounts: (
+  'small': $small-column-count,
+  'medium': $medium-column-count,
+  'large': $large-column-count,
+  'xlarge': $xlarge-column-count,
+  'xxlarge': $xxlarge-column-count
+);
+
 // Max Columns
-$grid-max: 12;
 @each $width in small, medium, large, xlarge, xxlarge {
   @if $width == small {
+    $grid-max: map-get($columnCounts, $width);
     @for $i from 1 through $grid-max {
       .#{$width}-#{$i} {
         width: flex-grid($i);
@@ -135,6 +143,7 @@ $grid-max: 12;
     }
   }
   @else {
+    $grid-max: map-get($columnCounts, $width);
     @for $i from 1 through $grid-max {
       .#{$width}-#{$i} {
         @include breakpoint(#{$width}) {
@@ -150,6 +159,7 @@ $grid-max: 12;
 }
 
 @each $width in small, medium, large, xlarge, xxlarge {
+  $grid-max: map-get($columnCounts, $width);
   @for $i from 1 through $grid-max {
     $grid-of: $i;
     @for $i from 1 through $grid-of {
@@ -179,16 +189,17 @@ $grid-max: 12;
 
 // Shift Classes
 @each $width in small, medium, large, xlarge, xxlarge {
+  $grid-max: map-get($columnCounts, $width);
   @for $i from 1 through $grid-max {
       @if $width == small {
       .#{$width}-offset-#{$i} {
-        @include shift($i);
+        @include shift-in-context($i of $grid-max);
       }
     }
     @else {
       .#{$width}-offset-#{$i} {
         @include breakpoint(#{$width}) {
-          @include shift($i);
+          @include shift-in-context($i of $grid-max);
         }
       }
     }
@@ -196,6 +207,7 @@ $grid-max: 12;
 }
 
 @each $width in small, medium, large, xlarge, xxlarge {
+  $grid-max: map-get($columnCounts, $width);
   @for $i from 1 through $grid-max {
     $grid-of: $i;
     @for $i from 1 through $grid-of {
