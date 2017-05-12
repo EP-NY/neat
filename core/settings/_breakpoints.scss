@@ -59,20 +59,20 @@ $width-xlarge-max: 1799px !default;
 $width-xxlarge-min: 1800px !default;
 
 // Small
-$small: new-breakpoint(max-width #{$width-small-max} $small-column-count);
+$small: new-breakpoint(max-width $width-small-max $small-column-count);
 
 // Medium
-$medium-up: new-breakpoint(min-width #{$width-medium-min} $medium-column-count);
-$medium-only: new-breakpoint(min-width #{$width-medium-min} max-width #{$width-medium-max} $medium-column-count);
+$medium-up: new-breakpoint(min-width $width-medium-min $medium-column-count);
+$medium-only: new-breakpoint(min-width $width-medium-min max-width $width-medium-max $medium-column-count);
 
 
 // Large
-$large-up: new-breakpoint(min-width #{$width-large-min} $large-column-count);
-$large-only: new-breakpoint(min-width #{$width-large-min} max-width #{$width-large-max} $large-column-count);
+$large-up: new-breakpoint(min-width $width-large-min $large-column-count);
+$large-only: new-breakpoint(min-width $width-large-min max-width $width-large-max $large-column-count);
 
 // X-Large
-$xlarge-up: new-breakpoint(min-width #{$width-xlarge-min} $xlarge-column-count);
-$xlarge-only: new-breakpoint(min-width #{$width-xlarge-min} max-width #{$width-xlarge-max} $xlarge-column-count);
+$xlarge-up: new-breakpoint(min-width $width-xlarge-min $xlarge-column-count);
+$xlarge-only: new-breakpoint(min-width $width-xlarge-min max-width $width-xlarge-max $xlarge-column-count);
 
 // XX-Large
-$xxlarge-up: new-breakpoint(min-width #{$width-xxlarge-min} $xxlarge-column-count);
+$xxlarge-up: new-breakpoint(min-width $width-xxlarge-min $xxlarge-column-count);
