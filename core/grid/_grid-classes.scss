@@ -134,10 +134,10 @@ $columnCounts: (
     $grid-max: map-get($columnCounts, $width);
     @for $i from 1 through $grid-max {
       .#{$width}-#{$i} {
-        width: flex-grid($i);
+        width: flex-grid($i, $grid-max);
         &.flex-columns {
-          flex: 0 0 flex-grid($i);
-          max-width: flex-grid($i);
+          flex: 0 0 flex-grid($i, $grid-max);
+          max-width: flex-grid($i, $grid-max);
         }
       }
     }
@@ -147,10 +147,10 @@ $columnCounts: (
     @for $i from 1 through $grid-max {
       .#{$width}-#{$i} {
         @include breakpoint(#{$width}) {
-          width: flex-grid($i);
+          width: flex-grid($i, $grid-max);
           &.flex-columns {
-            flex: 0 0 flex-grid($i);
-            max-width: flex-grid($i);
+            flex: 0 0 flex-grid($i, $grid-max);
+            max-width: flex-grid($i, $grid-max);
           }
         }
       }
