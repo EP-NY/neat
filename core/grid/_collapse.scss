@@ -51,7 +51,7 @@
         }
       }
       @if $fixed-gutter-xxlarge != null {
-        @include media($xxlarge) {
+        @include media($xxlarge-up) {
           margin-#{$direction}: -($fixed-gutter-xxlarge / 2);
         }
       }
@@ -78,7 +78,7 @@
         }
       }
       @if $fixed-gutter-xxlarge != null {
-        @include media($xxlarge) {
+        @include media($xxlarge-up) {
           margin-left: -($fixed-gutter-xxlarge / 2);
           margin-right: -($fixed-gutter-xxlarge / 2);
         }

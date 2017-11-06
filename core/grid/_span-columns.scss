@@ -85,6 +85,7 @@
       @if $fixed-gutter == true {
         @if $display == flex {
           flex: 0 0 flex-grid($columns, $container-columns);
+          max-width: flex-grid($columns, $container-columns);
         }
         @else {
           width: flex-grid($columns, $container-columns);
@@ -110,7 +111,7 @@
           }
         }
         @if $fixed-gutter-xxlarge != null {
-          @include media($xxlarge) {
+          @include media($xxlarge-up) {
             padding-left: $fixed-gutter-xxlarge / 2;
             padding-right: $fixed-gutter-xxlarge / 2;
           }
